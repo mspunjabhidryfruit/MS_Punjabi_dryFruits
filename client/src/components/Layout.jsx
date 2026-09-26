@@ -180,9 +180,23 @@ function Header() {
             <NavLink
               key={l.label}
               to={l.to}
-              className={({ isActive }) =>
-                isActive && !l.to.includes("?") ? "active" : ""
-              }
+              className={({ isActive }) => {
+                if (l.label === "News") {
+                  return loc.pathname === "/blog" &&
+                    new URLSearchParams(loc.search).get("type") === "news"
+                    ? "active"
+                    : "";
+                }
+
+                if (l.label === "Blog") {
+                  return loc.pathname === "/blog" &&
+                    new URLSearchParams(loc.search).get("type") !== "news"
+                    ? "active"
+                    : "";
+                }
+
+                return isActive ? "active" : "";
+              }}
             >
               {l.label}
             </NavLink>
