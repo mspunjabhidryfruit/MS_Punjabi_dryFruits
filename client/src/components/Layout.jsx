@@ -266,8 +266,9 @@ export function NewsletterBand() {
       <div className="container inner">
         <div>
           <div className="eyebrow">join our newsletter</div>
-          <h2 className="big-serif" style={{ marginTop: 6 }}>
-            Subscribe to our <b>Email alerts</b>
+
+          <h2 className="big-serif newsletter-title">
+            <span>Subscribe to our</span> <b>Email alerts</b>
           </h2>
         </div>
         <form className="nl-form" onSubmit={submit}>

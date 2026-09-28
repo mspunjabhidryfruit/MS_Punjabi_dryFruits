@@ -140,7 +140,7 @@ h4 {
   text-align: center;
   font-size: 34px;
   font-weight: 600;
-  color: var(--brown);
+  /* color: var(--brown); */
 }
 
 .sr-only {
@@ -208,9 +208,9 @@ h4 {
   padding: 12px 26px;
 
   border: 1px solid transparent;
-  border-radius: var(--r-pill);
+  border-radius: 4px;
 
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
 
   transition:
@@ -247,8 +247,8 @@ h4 {
 }
 
 .btn-outline {
-  background: transparent;
-  border-color: var(--yellow-2);
+  background: #dec6a9;
+
   color: var(--ink);
 }
 
@@ -724,7 +724,7 @@ h4 {
 .banner-img {
   width: 100%;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 5px;
 }
 
 .page-banner {
@@ -2225,16 +2225,15 @@ h4 {
 
 .purpose-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 
   align-items: end;
 }
-
 .purpose-card {
   position: relative;
 
-  height: 195px;
+  height: 145px;
 
   padding-top: 58px;
 
@@ -2249,7 +2248,7 @@ h4 {
 
 .purpose-card-body {
   width: 100%;
-  height: 210px;
+  height: 227px;
 
   display: flex;
   align-items: flex-end;
@@ -2274,12 +2273,12 @@ h4 {
 
 .purpose-icon {
   position: absolute;
-  top: 0;
+  top: -70px;
   left: 50%;
   z-index: 3;
 
-  width: 190px;
-  height: 190px;
+  width: 140px;
+  height: 140px;
 
   display: flex;
   align-items: center;
@@ -2292,7 +2291,7 @@ h4 {
 
   color: #a86b35;
 
-  transform: translateX(-50%);
+  transform: translateX(-10%);
 }
 
 .purpose-card-1 .purpose-icon {
@@ -2546,32 +2545,30 @@ h4 {
 .blog-tags {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-
-  gap: 4px;
-
-  color: #555;
-
-  font-size: 10px;
-
-  text-align: right;
+  align-items: flex-start;
+  gap: 6px;
 }
 
 .blog-tags span {
-  display: inline-block;
-
-  padding: 4px 8px;
-
-  border-radius: 999px;
-
-  background: #f5eee8;
-
-  color: #71300f;
-
-  font-size: 9px;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 18px;
+  background: #f5eee7;
+  color: #70442d;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
 }
 
+.blog-tags span svg {
+  width: 14px;
+  height: 14px;
+  color: #70442d;
+  flex-shrink: 0;
+}
 /* =========================================================
    DIVIDER
    ========================================================= */
@@ -5249,7 +5246,7 @@ table.tbl {
 
   .purpose-container {
     width: 100%;
-    padding: 0 14px;
+    padding: 0 5px;
   }
 
   .purpose-header {
@@ -5940,4 +5937,477 @@ table.tbl {
     top: auto !important;
     bottom: 15px !important;
   }
+}
+
+/* =========================================================
+   SHOP BY PURPOSE
+   ========================================================= */
+
+.purpose-section {
+  position: relative;
+  width: 100%;
+  padding: 70px 0 90px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.purpose-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.purpose-header {
+  max-width: 900px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.purpose-title {
+  margin: 0;
+  color: #1c1410;
+
+  font-family: var(--serif);
+  font-size: clamp(38px, 3.2vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.purpose-title b {
+  color: #b65b21;
+}
+
+.purpose-header p {
+  max-width: 800px;
+  margin: 24px auto 0;
+
+  color: #292929;
+
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  align-items: end;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.purpose-card {
+  position: relative;
+
+  min-width: 0;
+  height: 195px;
+
+  padding-top: 58px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.purpose-card:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
+.purpose-card-body {
+  width: 100%;
+  height: 210px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  padding: 0 15px 34px;
+
+  border-radius: 25px;
+
+  background: linear-gradient(180deg, #f6d9b0 0%, #e4bb87 55%, #d5a267 100%);
+
+  box-sizing: border-box;
+}
+
+.purpose-card-body span {
+  color: #080808;
+
+  font-size: clamp(22px, 2vw, 31px);
+  font-weight: 500;
+  line-height: 1.05;
+
+  text-align: center;
+
+  max-width: 100%;
+}
+
+/* =========================================================
+   PURPOSE IMAGE
+   ========================================================= */
+
+.purpose-icon {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 190px;
+  height: 190px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  overflow: hidden;
+}
+
+/*
+   Your PNG already contains the circular design,
+   so don't add another border around it.
+*/
+.purpose-icon img {
+  display: block;
+
+  width: 320px;
+  height: 320px;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+}
+
+/* =========================================================
+   DIFFERENT IMAGE / CARD ACCENTS
+   ========================================================= */
+
+.purpose-card-1 .purpose-icon {
+  border: none;
+}
+
+.purpose-card-2 .purpose-icon {
+  border: none;
+}
+
+.purpose-card-3 .purpose-icon {
+  border: none;
+}
+
+.purpose-card-4 .purpose-icon {
+  border: none;
+}
+
+/* =========================================================
+   DECORATION
+   ========================================================= */
+
+.purpose-decoration {
+  position: absolute;
+
+  top: 0;
+  right: -5px;
+
+  z-index: 1;
+
+  width: 300px;
+
+  pointer-events: none;
+}
+
+.purpose-decoration img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .purpose-container {
+    width: 94%;
+    padding: 0 25px;
+  }
+
+  .purpose-grid {
+    gap: 20px;
+  }
+
+  .purpose-icon {
+    width: 165px;
+    height: 165px;
+  }
+
+  .purpose-card {
+    height: 175px;
+    padding-top: 50px;
+  }
+
+  .purpose-card-body {
+    height: 190px;
+    padding-bottom: 28px;
+  }
+
+  .purpose-card-body span {
+    font-size: 25px;
+  }
+
+  .purpose-decoration {
+    width: 240px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .purpose-section {
+    padding: 55px 0 70px;
+  }
+
+  .purpose-container {
+    width: 92%;
+    padding: 0;
+  }
+
+  .purpose-header {
+    margin-bottom: 55px;
+  }
+
+  .purpose-title {
+    font-size: clamp(34px, 7vw, 46px);
+  }
+
+  .purpose-header p {
+    margin-top: 18px;
+    font-size: 16px;
+  }
+
+  .purpose-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 65px 25px;
+  }
+
+  .purpose-card {
+    height: 180px;
+    padding-top: 55px;
+  }
+
+  .purpose-icon {
+    width: 170px;
+    height: 170px;
+  }
+
+  .purpose-card-body {
+    height: 195px;
+    padding: 0 10px 28px;
+    border-radius: 22px;
+  }
+
+  .purpose-card-body span {
+    font-size: 25px;
+  }
+
+  .purpose-decoration {
+    width: 190px;
+    opacity: 0.8;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .purpose-section {
+    padding: 45px 0 60px;
+  }
+
+  .purpose-container {
+    width: calc(100% - 30px);
+    padding: 0;
+  }
+
+  .purpose-header {
+    margin-bottom: 45px;
+  }
+
+  .purpose-title {
+    font-size: 34px;
+  }
+
+  .purpose-header p {
+    max-width: 500px;
+
+    margin-top: 16px;
+
+    padding: 0 8px;
+
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .purpose-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px 16px;
+  }
+
+  .purpose-card {
+    height: 145px;
+    padding-top: 43px;
+  }
+
+  .purpose-icon {
+    width: 130px;
+    height: 130px;
+  }
+
+  .purpose-card-body {
+    height: 155px;
+
+    padding: 0 6px 20px;
+
+    border-radius: 18px;
+  }
+
+  .purpose-card-body span {
+    font-size: 20px;
+    line-height: 1.05;
+  }
+
+  .purpose-decoration {
+    width: 125px;
+    right: -25px;
+    opacity: 0.65;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .purpose-section {
+    padding-top: 40px;
+  }
+
+  .purpose-container {
+    width: calc(100% - 24px);
+  }
+
+  .purpose-title {
+    font-size: 30px;
+  }
+
+  .purpose-header p {
+    font-size: 14px;
+  }
+
+  .purpose-grid {
+    gap: 55px 12px;
+  }
+
+  .purpose-card {
+    height: 130px;
+    padding-top: 38px;
+  }
+
+  .purpose-icon {
+    width: 112px;
+    height: 112px;
+  }
+
+  .purpose-card-body {
+    height: 140px;
+    border-radius: 16px;
+    padding-bottom: 17px;
+  }
+
+  .purpose-card-body span {
+    font-size: 17px;
+  }
+
+  .purpose-decoration {
+    width: 100px;
+  }
+}
+.bulk-banner-section {
+  width: 100%;
+  margin: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.bulk-banner-section .banner-img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bulk-banner-section .banner-img img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.newsletter-title {
+  margin-top: 6px;
+  font-size: clamp(28px, 5.5vw, 38px);
+  line-height: 0.98;
+  letter-spacing: -2px;
+}
+
+.newsletter-title span {
+  color: #111;
+}
+
+.newsletter-title b {
+  color: var(--brown);
+  font-weight: 500;
+}
+.blog-share {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  border: 1.5px solid #777;
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.blog-arrow-icon {
+  width: 21px;
+  height: 21px;
+  object-fit: contain;
+  display: block;
 }

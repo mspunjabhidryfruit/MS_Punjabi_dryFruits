@@ -11,6 +11,8 @@ import {
   BadgeCheck,
   ChevronLeft,
   ChevronRight,
+  Tag,
+  ArrowUpRight,
 } from "lucide-react";
 import { get } from "../services/api.js";
 import { useFetch } from "../utils/hooks.js";
@@ -23,6 +25,30 @@ import {
   Skeleton,
   ProductGridSkeleton,
 } from "../components/Common.jsx";
+
+import giftingImage from "../assets/purpose/gifting.png";
+import cookingImage from "../assets/purpose/cooking.png";
+import snackingImage from "../assets/purpose/snacking.png";
+import dailyNutritionImage from "../assets/purpose/daily-nutrition.png";
+import arrowIcon from "../assets/purpose/icons/Vector.png";
+const purposes = [
+  {
+    title: "Gifting",
+    image: giftingImage,
+  },
+  {
+    title: "Cooking",
+    image: cookingImage,
+  },
+  {
+    title: "Snacking",
+    image: snackingImage,
+  },
+  {
+    title: "Daily Nutrition",
+    image: dailyNutritionImage,
+  },
+];
 
 const ORDER = [
   "Almond",
@@ -407,7 +433,12 @@ export default function Home() {
 
             <div className="purpose-grid">
               {settings.purposes.slice(0, 4).map((item, i) => {
-                const Icon = PURPOSE_ICONS[i % PURPOSE_ICONS.length];
+                const purposeImages = [
+                  giftingImage,
+                  cookingImage,
+                  snackingImage,
+                  dailyNutritionImage,
+                ];
 
                 return (
                   <Link
@@ -416,7 +447,10 @@ export default function Home() {
                     className={`purpose-card purpose-card-${i + 1}`}
                   >
                     <div className="purpose-icon">
-                      <Icon size={58} strokeWidth={1.8} />
+                      <img
+                        src={purposeImages[i]}
+                        alt={`${item.label} purpose`}
+                      />
                     </div>
 
                     <div className="purpose-card-body">
@@ -428,26 +462,33 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Decorative dry fruits */}
           <div className="purpose-decoration" aria-hidden="true">
-            <img src="/img/purpose-nuts.png" alt="urpose-nuts" />
+            <img src="/img/purpose-nuts.png" alt="" />
           </div>
         </section>
       )}
 
       {bulkBanner && (
-        <section className="section container" style={{ paddingTop: 10 }}>
+        <section className="bulk-banner-section" style={{ paddingTop: 10 }}>
           <Link
             to={bulkBanner.ctaUrl || "/contact"}
             className="banner-img"
-            style={{ display: "block" }}
+            style={{
+              display: "block",
+              width: "100%",
+            }}
           >
             <img
-              src={img(bulkBanner.image?.url, 1400)}
+              src={img(bulkBanner.image?.url, 1800)}
               alt={`${bulkBanner.title || ""} ${bulkBanner.subtitle || ""}`}
               loading="lazy"
-              width="1400"
-              height="330"
+              width="1800"
+              height="430"
+              style={{
+                display: "block",
+                width: "100%",
+                height: "auto",
+              }}
             />
           </Link>
         </section>
@@ -496,9 +537,15 @@ export default function Home() {
 
                       <div className="blog-info-right">
                         <div className="blog-tags">
-                          <span>{b.tag || "Healthy Lifestyle"}</span>
+                          <span>
+                            {b.tag || "Healthy Lifestyle"}
+                            <Tag size={14} strokeWidth={1.8} />
+                          </span>
 
-                          <span>{b.category || "Healthy Dessert"}</span>
+                          <span>
+                            {b.category || "Healthy Dessert"}
+                            <Tag size={14} strokeWidth={1.8} />
+                          </span>
                         </div>
 
                         <button
@@ -521,7 +568,11 @@ export default function Home() {
                             }
                           }}
                         >
-                          ↗
+                          <img
+                            src={arrowIcon}
+                            alt=""
+                            className="blog-arrow-icon"
+                          />
                         </button>
                       </div>
                     </div>
