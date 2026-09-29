@@ -125,9 +125,6 @@ function Testimonials({ list = [] }) {
 
   return (
     <section className="testi" aria-label="Customer testimonials">
-      <div className="testi-decor testi-decor-left" aria-hidden="true" />
-      <div className="testi-decor testi-decor-right" aria-hidden="true" />
-
       <div className="container testi-container">
         <h2 className="testi-title">
           <span>Customer</span> <b>Testimonials</b>
@@ -149,13 +146,15 @@ function Testimonials({ list = [] }) {
                   </div>
 
                   <div className="testi-user-info">
-                    <strong>{t.name || "Customer"}</strong>
+                    <div className="testi-name-row">
+                      <strong>{t.name || "Customer"}</strong>
+
+                      <div className="testi-stars">
+                        <Stars n={t.rating} />
+                      </div>
+                    </div>
 
                     <span>Customer</span>
-
-                    <div className="testi-stars">
-                      <Stars n={t.rating} />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -163,7 +162,7 @@ function Testimonials({ list = [] }) {
           ))}
         </div>
 
-        {list.length > 3 && (
+        {list.length > 0 && (
           <div className="testi-controls">
             <button
               className="testi-nav"

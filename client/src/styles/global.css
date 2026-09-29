@@ -1718,17 +1718,19 @@ h4 {
 /* =========================================================
    14. TESTIMONIALS
    ========================================================= */
-
 .testi {
   position: relative;
 
   min-height: 445px;
 
-  padding: 68px 0 62px;
+  padding: 18px 0 12px;
 
   overflow: hidden;
 
-  background: #e7f6f7;
+  background-image: url("/img/testimonials-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
 }
 
 .testi-container {
@@ -1757,7 +1759,7 @@ h4 {
 .testi-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 36px;
+  gap: 0;
 }
 
 .testi-card {
@@ -1766,7 +1768,7 @@ h4 {
   display: flex;
   flex-direction: column;
 
-  padding: 30px 26px 28px;
+  padding: 20px 16px 18px;
 
   border-radius: 15px;
 
@@ -1809,13 +1811,10 @@ h4 {
 
 .testi-user {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
 
   min-width: 0;
-
   flex: 1;
 }
 
@@ -1860,44 +1859,79 @@ h4 {
   font-size: 14px;
 }
 
-.testi-stars {
-  flex: 0 0 auto;
+.testi-name-row {
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+
+.testi-name-row strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #252525;
+  font-size: 16px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.testi-name-row .testi-stars {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+
   color: #ff7900;
-  font-size: 20px;
+
+  font-size: 16px;
   line-height: 1;
-  letter-spacing: 0;
+
   white-space: nowrap;
 }
 
-.testi-stars .stars {
+.testi-name-row .testi-stars .stars {
   color: #ff7900;
 }
 
 .testi-controls {
+  position: relative;
+  z-index: 10;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
 
-  margin-top: 52px;
+  gap: 12px;
+  width: 100%;
+
+  margin-top: 28px;
+  padding-bottom: 5px;
 }
 
 .testi-nav {
-  width: 56px;
-  height: 56px;
+  position: relative;
+  z-index: 11;
 
-  display: grid;
-  place-items: center;
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   padding: 0;
 
-  border: 1px solid #222;
+  border: 1px solid #777;
   border-radius: 50%;
 
-  background: transparent;
+  background: rgba(255, 255, 255, 0.75);
   color: #222;
+
+  cursor: pointer;
+  box-sizing: border-box;
 
   transition:
     background 0.2s ease,
@@ -1910,34 +1944,6 @@ h4 {
   color: #fff;
   transform: translateY(-2px);
 }
-
-.testi-decor {
-  position: absolute;
-  z-index: 1;
-
-  pointer-events: none;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.testi-decor-left {
-  left: -45px;
-  bottom: -10px;
-
-  width: 190px;
-  height: 330px;
-}
-
-.testi-decor-right {
-  top: 10px;
-  right: -20px;
-
-  width: 330px;
-  height: 250px;
-}
-
 /* =========================================================
    15. STORE
    ========================================================= */
@@ -3507,9 +3513,20 @@ h4 {
   border-radius: 50%;
 }
 
-.did-you-know {
-  position: relative;
-  margin-top: 30px;
+.did-you-know-banner {
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.did-you-know-banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 12px 0;
+  object-fit: cover;
 }
 
 .tabs {
@@ -3697,7 +3714,6 @@ h4 {
 
   background: #fff;
 }
-
 .qty-mini {
   display: inline-flex;
   align-items: center;
@@ -3713,7 +3729,15 @@ h4 {
 
   background: #bdbdbd;
 
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
+  color: #222;
+}
+
+.qty-mini button:disabled {
+  font-weight: 800;
+  color: #222;
+  opacity: 1;
 }
 
 .qty-mini span {
@@ -3729,7 +3753,6 @@ h4 {
 
   font-size: 13px;
 }
-
 /* =========================================================
    24. COUPONS
    ========================================================= */
@@ -3892,6 +3915,45 @@ h4 {
 
   font-size: 12px;
   font-weight: 600;
+}
+
+/* =========================================================
+   CART COUPON FIX
+   ========================================================= */
+
+.drawer .drawer-body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.drawer .coupon-box {
+  display: block !important;
+  width: 100% !important;
+  min-height: 96px !important;
+  flex-shrink: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 5 !important;
+  box-sizing: border-box;
+}
+
+.drawer .coupon-box .r1,
+.drawer .coupon-box .r2 {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 6 !important;
+  box-sizing: border-box;
+}
+
+.drawer .coupon-box .r1 {
+  min-height: 48px;
+}
+
+.drawer .coupon-box .r2 {
+  min-height: 48px;
 }
 
 /* =========================================================
@@ -6410,4 +6472,446 @@ table.tbl {
   height: 21px;
   object-fit: contain;
   display: block;
+}
+/* =========================================================
+   PRODUCT DETAIL - CUSTOMER TESTIMONIALS
+   ========================================================= */
+
+.product-testimonials {
+  width: 100%;
+  background: #fffa6424;
+  padding: 38px 20px 36px;
+  margin-top: -30px;
+}
+
+.product-testimonials-inner {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Heading */
+
+.product-testimonials-title {
+  margin: 0 0 46px;
+  text-align: center;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  color: #171717;
+}
+
+/* Cards */
+
+.product-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Individual card */
+
+.product-testimonial-card {
+  min-height: 168px;
+
+  padding: 20px 24px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #fff;
+
+  border-radius: 11px;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+
+  text-align: center;
+}
+
+/* Avatar */
+
+.product-testimonial-avatar {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 7px;
+
+  border-radius: 50%;
+
+  background: #eeeeeb;
+
+  overflow: hidden;
+}
+
+/* Avatar head */
+
+.product-testimonial-avatar-head {
+  position: absolute;
+
+  width: 15px;
+  height: 15px;
+
+  top: 7px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #c4c3bd;
+}
+
+/* Avatar body */
+
+.product-testimonial-avatar-body {
+  position: absolute;
+
+  width: 29px;
+  height: 17px;
+
+  left: 50%;
+  bottom: 3px;
+
+  transform: translateX(-50%);
+
+  border-radius: 18px 18px 0 0;
+
+  background: #c4c3bd;
+}
+
+/* Name */
+
+.product-testimonial-name {
+  margin: 0 0 6px;
+
+  font-family: var(--sans, Arial, sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+
+  color: #202020;
+}
+
+/* Review text */
+
+.product-testimonial-text {
+  width: 100%;
+  max-width: 285px;
+
+  margin: 0;
+
+  font-family: var(--sans, Arial, sans-serif);
+  font-size: 11.5px;
+  line-height: 1.45;
+  font-weight: 400;
+
+  color: #333;
+
+  text-align: center;
+}
+
+/* Stars */
+
+.product-testimonial-stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1px;
+
+  margin-top: 8px;
+}
+
+.product-testimonial-stars .star {
+  font-size: 14px;
+  line-height: 1;
+
+  color: #d8d8d8;
+}
+
+.product-testimonial-stars .star.active {
+  color: #f5bd18;
+}
+
+/* Navigation */
+.product-testimonial-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.product-testimonial-nav {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid #777;
+  border-radius: 50%;
+
+  background: #fbf9e9;
+  color: #222;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Make Lucide arrows bold */
+.product-testimonial-nav svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 3;
+}
+
+.product-testimonial-nav:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.product-testimonial-nav:active {
+  transform: translateY(0);
+}
+
+.related-products-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 4px 20px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.related-products-row::-webkit-scrollbar {
+  display: none;
+}
+
+.related-product-item {
+  flex: 0 0 260px;
+  min-width: 260px;
+}
+
+@media (max-width: 600px) {
+  .related-products-row {
+    gap: 12px;
+  }
+
+  .related-product-item {
+    flex: 0 0 210px;
+    min-width: 210px;
+  }
+}
+/* =========================================================
+   TESTIMONIALS - MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .product-testimonials {
+    padding: 32px 16px 30px;
+    margin-top: 40px;
+  }
+
+  .product-testimonials-title {
+    margin-bottom: 30px;
+
+    font-size: 28px;
+  }
+
+  .product-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .product-testimonial-card {
+    min-height: auto;
+
+    padding: 20px 22px;
+  }
+
+  .product-testimonial-text {
+    max-width: 330px;
+    font-size: 12px;
+  }
+
+  .product-testimonial-controls {
+    margin-top: 24px;
+  }
+}
+/* =========================================================
+   MS PUNJABI DRY FRUITS
+   PRODUCT ACTION BUTTONS
+========================================================= */
+
+.ms-product-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* ---------------------------------------------------------
+   COMMON BUTTON STYLE
+--------------------------------------------------------- */
+
+.ms-add-cart-btn,
+.ms-buy-now-btn {
+  flex: 1;
+  height: 32px;
+  border-radius: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 28px;
+
+  font-family: var(--pop, "Poppins", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  outline: none;
+}
+
+/* ---------------------------------------------------------
+   ADD TO CART
+--------------------------------------------------------- */
+
+.ms-add-cart-btn {
+  background: #ffcf2f;
+  border: 1.5px solid #ffcf2f;
+  color: #222;
+}
+
+.ms-add-cart-btn:hover:not(:disabled) {
+  background: #ffca18;
+  border-color: #ffca18;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 14px rgba(255, 207, 47, 0.25);
+}
+
+.ms-add-cart-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------
+   BUY NOW
+--------------------------------------------------------- */
+
+.ms-buy-now-btn {
+  background: #fff;
+  border: 1.5px solid #c9a63a;
+  color: #222;
+}
+
+.ms-buy-now-btn:hover:not(:disabled) {
+  background: #fffdf5;
+  border-color: #b99528;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 14px rgba(201, 166, 58, 0.14);
+}
+
+.ms-buy-now-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------
+   DISABLED
+--------------------------------------------------------- */
+
+.ms-add-cart-btn:disabled,
+.ms-buy-now-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .ms-product-actions {
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .ms-add-cart-btn,
+  .ms-buy-now-btn {
+    height: 48px;
+    padding: 0 18px;
+
+    font-size: 14px;
+    border-radius: 25px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .ms-product-actions {
+    gap: 10px;
+  }
+
+  .ms-add-cart-btn,
+  .ms-buy-now-btn {
+    height: 46px;
+
+    padding: 0 12px;
+
+    font-size: 13px;
+    border-radius: 23px;
+  }
+}
+@media (max-width: 600px) {
+  .testi {
+    min-height: auto;
+    padding: 45px 0 45px;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .testi-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .testi-card {
+    width: calc(100% - 32px);
+    min-height: 0;
+    margin: 0 auto;
+    padding: 26px 22px 24px;
+    box-sizing: border-box;
+  }
 }
