@@ -1,18 +1,28 @@
 .adm {
   display: grid;
-  grid-template-columns: 230px 1fr;
+  grid-template-columns: 230px minmax(0, 1fr);
   min-height: 100vh;
   background: #f6f3ee;
   font-family: var(--sans);
+  align-items: stretch;
 }
+
 .adm-side {
   background: #2b1a10;
   color: #f3e6d3;
   padding: 18px 12px;
-  position: sticky;
+  /* position: sticky;
   top: 0;
   height: 100vh;
+  min-height: 100vh; */
+  box-sizing: border-box;
   overflow-y: auto;
+  align-self: start;
+}
+
+.adm-main {
+  padding: 26px 30px 60px;
+  min-width: 0;
 }
 .adm-side .brand {
   display: flex;
